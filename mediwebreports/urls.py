@@ -16,9 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.contrib.auth.decorators import login_required
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.connsql),
-    path('Login',views.login, name="login")
+    path('Usuarios',views.Usuarios,name="Usuarios" ),
+    path('Login',views.login, name="login"),
+    path('menuheader',views.MenuHeader),
+    path('Enfermera',views.Enfermera, name="Enfermera"),
+    path('Enfermeraadd',views.EnfermeraAdd, name="Enfermeraadd")
+
+    
 ]
