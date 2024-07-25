@@ -14,43 +14,23 @@
     <title>Enfermeras!</title>
   </head>
   <body>
- 
-    <!-- Optional JavaScript; choose one of the two! -->
+    {% include "MenuHeader.html" %}
 
+    <!-- Aquí va el contenido de cada página -->
+    {% block content %}
+    
     
 <div class="card">
     <div class="card-header">
-        Lista enfermera
+       Mediweb
     </div>
     <div class="card-body">
-  <table class="table table-striped" >
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Telefono</th>
-      <th scope="col">DNI</th>
-      <th scope="col">Direccion</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for datadisplay in sqlserverconn%}
-
-    <tr>
-        <td>{{datadisplay.id}}</td>
-        <td>{{datadisplay.Nombre}}</td>
-        <td>{{datadisplay.Telefono}}</td>
-        <td>{{datadisplay.DNI}}</td>
-        <td>{{datadisplay.Direccion}}</td>
-
-
-    </tr>
-    {% endfor %}
-
-  </tbody>
-</table>
+ <p>Bienvenido al sistema de enfermeria MEDIWEB</p>
+ <p>El cual se pueden manejar lo que son enfermeras</p>
    
 </div>
 </div>
+
+{% endblock %}
   </body>
 </html>

@@ -21,12 +21,23 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.connsql),
+    path('',views.connsql ),
+     path('Index',views.connsql , name="Index" ),
     path('Usuarios',views.Usuarios,name="Usuarios" ),
     path('Login',views.login, name="login"),
     path('menuheader',views.MenuHeader),
     path('Enfermera',views.Enfermera, name="Enfermera"),
-    path('Enfermeraadd',views.EnfermeraAdd, name="Enfermeraadd")
+    path('Enfermeraadd',views.EnfermeraAdd, name="Enfermeraadd"),
+    path('EnfermeraDelete/<int:id>',views.EnfermeraDelete, name="EnfermeraDelete"),
+    path('EnferemeraEdit/<int:id>',views.EnferemeraEdit, name="EnferemeraEdit"),
+    path('Usuarioadd',views.Usuarioadd, name="Usuarioadd"),
+    path('CategoriaShow',views.CategoriaShow, name="CategoriaShow"),
+    path('ClasificacionEnfermedadesShow',views.ClasificacionEnfermedadesShow, name="ClasificacionEnfermedadesShow"),
+    path('ClasificacionExamenMedicoShow',views.ClasificacionExamenMedicoShow, name="ClasificacionExamenMedicoShow"),
+    path('pedidoventarpt',views.pedidoventarpt, name="pedidoventarpt"),
+    path('Enfermedadesrpt',views.Enfermedadesrpt, name="Enfermedadesrpt"),
+    path('Pacientesrp',views.Pacientesrp, name="Pacientesrp"),
+    path('MedicamentosMasVendidosrpt',views.MedicamentosMasVendidosrpt, name="MedicamentosMasVendidosrpt")
 
-    
+
 ]

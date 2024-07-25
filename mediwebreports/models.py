@@ -7,6 +7,13 @@ class sqlserverconn(models.Model):
     Direccion = models.CharField(max_length=2000)
     id = models.BigIntegerField(primary_key=True)
 
+class Enfermera(models.Model):
+       id = models.BigAutoField(primary_key=True)
+       Nombre = models.CharField(max_length=200)
+       Telefono = models.CharField(max_length=20)
+       DNI = models.CharField(max_length=20)
+       Direccion = models.CharField(max_length=200)
+
 
 class UsuarioAdd(models.Model):
     id = models.BigIntegerField(primary_key=True)

@@ -17,12 +17,19 @@
 
     <!-- Aquí va el contenido de cada página -->
     {% block content %}
+
+    {% url 'Usuarioadd' as Enfermera %}
+
     
 <div class="card">
     <div class="card-header">
-        Lista Uusuarios
+        Lista Usuarios
     </div>
     <div class="card-body">
+      <a class="btn btn-success" href="{{Enfermera}}">
+        <i    class="bi bi-plus-circle"></i>
+        Crear nuevo</a>
+    <br />
   <table class="table table-striped" >
   <thead>
     <tr>
@@ -31,6 +38,7 @@
       <th scope="col">nombre</th>
       <th scope="col">correo</th>
       <th scope="col">Rol</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -42,6 +50,17 @@
         <td>{{datadisplay.nombre}}</td>
         <td>{{datadisplay.correo}}</td>
         <td>{{datadisplay.Rol}}</td>
+        <td>
+          <a  class="btn btn-primary" href="{% url 'EnferemeraEdit' datadisplay.id %}"    >
+              <i class="bi bi-pencil-square"></i> Editar
+          </a>
+   
+          
+          <a  href="{% url 'EnfermeraDelete' datadisplay.id %}"  class="btn btn-danger" >
+              <i class="bi bi-x-circle-fill"></i> Eliminar
+          </a>
+   
+      </td>
 
 
     </tr>

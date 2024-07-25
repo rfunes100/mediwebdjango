@@ -26,7 +26,7 @@
 
 <div class="card">
     <div class="card-header">
-        Lista enfermera
+        Lista Clasificacion de examen medico
     </div>
     <div class="card-body">
       <a class="btn btn-success" href="{{Enfermera}}">
@@ -38,10 +38,8 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Telefono</th>
-      <th scope="col">DNI</th>
-      <th scope="col">Direccion</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">estado</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -50,10 +48,8 @@
 
     <tr>
         <td>{{datadisplay.id}}</td>
-        <td>{{datadisplay.Nombre}}</td>
-        <td>{{datadisplay.Telefono}}</td>
-        <td>{{datadisplay.DNI}}</td>
-        <td>{{datadisplay.Direccion}}</td>
+        <td>{{datadisplay.Descripcion}}</td>
+        <td>{{datadisplay.estado}}</td>
         <td>
           <a  class="btn btn-primary" href="{% url 'EnferemeraEdit' datadisplay.id %}"    >
               <i class="bi bi-pencil-square"></i> Editar

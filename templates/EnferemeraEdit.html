@@ -29,38 +29,43 @@
     
 
 
-    
+    {% url 'Enfermera' as Enfermera %}
+
    <div class="card">
         <div class="card-header">
-            Crear Enfermera
+            Editar Enfermera
         </div>
         <div class="card-body">
     
             
             <form method="post">
                 {% csrf_token %}
+                {% for row in sqlserverconn %}
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                    <input  type="text" class="form-control" id="Nombre" name="Nombre" >
+                    <input  type="text" class="form-control" id="Nombre" name="Nombre"  value= "{{ row.Nombre }}" >
                     <span  class="text-danger"></span>
                  
                   
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Telefono</label>
-                    <input  type="tel" class="form-control" id="Telefono" name="Telefono"  >
+                    <input  type="tel" class="form-control" id="Telefono" name="Telefono"   value= "{{ row.Telefono }}" >
                     <span  class="text-danger"></span>
                
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">DNI</label>
-                    <input type="text" class="form-control" id="DNI" name="DNI"  >
+                    <input type="text" class="form-control" id="DNI" name="DNI" value= "{{ row.DNI }}" >
                     <span  class="text-danger"></span>
     
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Direccion</label>
-                    <textarea id="Direccion" class="form-control" rows="3" cols="30" name="Direccion"  > </textarea>
+                    <textarea id="Direccion" class="form-control" rows="3" cols="30" name="Direccion"   value= "{{ row.Direccion }}" >
+                        {{ row.Direccion }}
+                        
+                    </textarea>
                     <span  class="text-danger"></span>
                 
                 </div>
@@ -69,11 +74,12 @@
                 <button type="submit" class="btn btn-primary">
                     <i class="bi bi-floppy-fill"></i> Guardar
                 </button>
-                <a  class="btn btn-warning">
-                    <i class="bi bi-arrow-left-circle-fill"></i> Volver a la lista
+                <a  class="btn btn-warning" href="{{Enfermera}}" >
+                    <i class="bi bi-arrow-left-circle-fill" ></i> Volver a la lista
                 </a>
   <!--  
                 -->
+                {% endfor %}    
             </form>
     
         </div>

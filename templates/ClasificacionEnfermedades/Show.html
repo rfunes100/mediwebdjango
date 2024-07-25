@@ -1,4 +1,4 @@
-<!doctype html>
+*<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -26,7 +26,7 @@
 
 <div class="card">
     <div class="card-header">
-        Lista enfermera
+        Lista Clasificacion de enfemedades
     </div>
     <div class="card-body">
       <a class="btn btn-success" href="{{Enfermera}}">
@@ -38,10 +38,7 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Telefono</th>
-      <th scope="col">DNI</th>
-      <th scope="col">Direccion</th>
+      <th scope="col">Descripcion</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -49,18 +46,15 @@
     {% for datadisplay in sqlserverconn%}
 
     <tr>
-        <td>{{datadisplay.id}}</td>
-        <td>{{datadisplay.Nombre}}</td>
-        <td>{{datadisplay.Telefono}}</td>
-        <td>{{datadisplay.DNI}}</td>
-        <td>{{datadisplay.Direccion}}</td>
+        <td>{{datadisplay.Id}}</td>
+        <td>{{datadisplay.Descripcion}}</td>
         <td>
-          <a  class="btn btn-primary" href="{% url 'EnferemeraEdit' datadisplay.id %}"    >
+          <a  class="btn btn-primary" href="{% url 'EnferemeraEdit' datadisplay.Id %}"    >
               <i class="bi bi-pencil-square"></i> Editar
           </a>
    
           
-          <a  href="{% url 'EnfermeraDelete' datadisplay.id %}"  class="btn btn-danger" >
+          <a  href="{% url 'EnfermeraDelete' datadisplay.Id %}"  class="btn btn-danger" >
               <i class="bi bi-x-circle-fill"></i> Eliminar
           </a>
    

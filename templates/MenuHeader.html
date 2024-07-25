@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="~/MediWeb.styles.css" asp-append-version="true" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <title>Menu!</title>
   </head>
@@ -25,33 +27,73 @@
  
     {% url 'Usuarios' as usuario %}
     {% url 'login' as login %}
+    {% url 'index' as index %}
+    {% url 'CategoriaShow' as CategoriaShow %}
+    {% url 'ClasificacionEnfermedadesShow' as ClasificacionEnfermedadesShow %}
+    {% url 'ClasificacionExamenMedicoShow' as ClasificacionExamenMedicoShow %}
+    {% url 'pedidoventarpt' as pedidoventarpt %}
+    {% url 'Enfermedadesrpt' as Enfermedadesrpt %}
+    {% url 'Pacientesrp' as Pacientesrp %}
+    {% url 'MedicamentosMasVendidosrpt' as MedicamentosMasVendidosrpt %}
+    
  
- 
- 
+    
+    
+
+  
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
         {% if request.session.Userid  %}
-        <a class="nav-link" href="{{login}}">   <i class="bi bi-box-arrow-left"></i> Logout</a>
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{Enfermera}}">Inicio</a>
+            <a class="navbar-brand" href="{{index}}">Inicio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{{Enfermera}}">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{index}}">Home</a>
                 <a class="nav-link" href="{{Enfermera}}">   <i class="bi bi-person-fill"></i>  Enfermera</a>
                 <a class="nav-link" href="{{usuario}}">   <i class="bi bi-person-fill"></i> Usuario</a>
               
+                       <!-- Menú desplegable de mantenimientos -->
+                       <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mantenimientos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item"  href="{{CategoriaShow}}" >  <i class="bi bi-card-list"></i> Categorias</a>
+                            <a class="dropdown-item" href="{{ClasificacionEnfermedadesShow}}"> <i class="bi bi-card-list"></i>  Clasificacion Enfermedades</a>
+                            <a class="dropdown-item" href="{{ClasificacionExamenMedicoShow}}"> <i class="bi bi-card-list"></i>  Clasificacion Examen Medico</a>
+                        </div>
+                    </div>
+
+                       <!-- Menú desplegable de mantenimientos -->
+                       <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                            Reportes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item"  href="{{pedidoventarpt}}" >  <i class="bi bi-file-bar-graph-fill"></i> Ventas Mensuales 2024</a>
+                            <a class="dropdown-item" href="{{Enfermedadesrpt}}"> <i class="bi bi-file-bar-graph-fill"></i> Enfermedades Clasificadas</a>
+                            <a class="dropdown-item" href="{{Pacientesrp}}"> <i class="bi bi-file-bar-graph-fill"></i>  Pacientes Nuevos</a>
+                            <a class="dropdown-item" href="{{MedicamentosMasVendidosrpt}}"> <i class="bi bi-coin"></i> Medicamentos mas vendidos</a>
+                        </div>
+                    </div>
+
               </div>
             </div>
-          <p class="nav-link text-white">   </p>   <a class="nav-link" href="{{login}}" class="text-white"> {{ request.session.Userid }}  &nbsp; &nbsp;   <i class="bi bi-box-arrow-left text-white"> Logout </i></a>
+
+               
+         
+         
+          <p class="nav-link text-white">   </p>   <a class="nav-link text-white" href="{{login}}" class="text-white"> {{ request.session.Userid }}  &nbsp; &nbsp;   <i class="bi bi-box-arrow-left text-white"> Logout </i></a>
           </div>
         {% else %}
         
       
         <div class="container-fluid">
             <a class="navbar-brand" href="{{login}}">  <i class="bi bi-box-arrow-in-right text-white"> Inicie sesion </i> </a>
+            
           
          
           </div>
